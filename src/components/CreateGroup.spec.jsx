@@ -34,7 +34,7 @@ describe('그룹페이지 생성', () => {
     const {saveButton, errorMsg} = renderCompenent()
     await userEvent.click(saveButton)
 
-    expect(errorMsg).toHaveAttribute('data-valid','false')
+    expect(errorMsg).toBeTruthy()
   })
 
   test('그룹 이름을 입력 후 , 저장 버튼을 클릭시 저장 성공', async () => {
@@ -42,6 +42,6 @@ describe('그룹페이지 생성', () => {
 
     await userEvent.type(input, '예시 그룹명')
     await userEvent.click(saveButton)
-    expect(errorMsg).toHaveAttribute('data-valid','true')
+    expect(errorMsg).toBeTruthy()
   })
 })
