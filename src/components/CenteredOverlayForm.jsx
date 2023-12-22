@@ -1,5 +1,8 @@
-export const CenteredOverlayForm = () => {
+export const CenteredOverlayForm = ({children}) => {
   return (
-    <div>CenteredOverlayForm components</div>
+    <div>
+      <h1>Dutch Pay</h1>
+      {children}
+    </div>
   )
 }

@@ -1,11 +1,11 @@
-// import { CenteredOverlayForm } from "./CenteredOverlayForm"
-import { Button, Container, Form, Row } from "react-bootstrap";
-import { useRecoilState } from "recoil";
-import { groupNameState } from '../state/groupName';
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { Button, Container, Form, Row } from "react-bootstrap";
+import { CenteredOverlayForm } from "./CenteredOverlayForm"
+import { groupNameState } from '../state/groupName';
 
 export const CreateGroup = () => {
-  const [groupName, setGroupName] = useRecoilState(groupNameState);
+  const setGroupName = useSetRecoilState(groupNameState);
   const [valiGroupName, setValiGroupName] = useState(false);
   const [validated, setValidated] = useState(false);
 
@@ -25,8 +25,7 @@ export const CreateGroup = () => {
   }
 
   return (
-    <div>
-      <h1>더치페이</h1>
+    <CenteredOverlayForm>
       <Container>
         <Form noValidate validated={validated} onSubmit={handelSubmit}>
           <Row>
@@ -53,7 +52,6 @@ export const CreateGroup = () => {
           </Row>
         </Form>
       </Container>
-      {/* <CenteredOverlayForm /> */}
-    </div>
+    </CenteredOverlayForm>
   )
 }
