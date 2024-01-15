@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { Button, Container, Form, Row } from "react-bootstrap";
 import { CenteredOverlayForm } from "./CenteredOverlayForm"
 import { InputTags } from "react-bootstrap-tagsinput";
 import { groupMembersState } from "../state/groupMembers";
+import { groupNameState } from "../state/groupName";
 
 export const AddMembers = () => {
   const [groupMembers, setGroupMembers] = useRecoilState(groupMembersState);
+  const groupName = useRecoilValue(groupNameState);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handelSubmit = (event) => {
@@ -20,12 +22,11 @@ export const AddMembers = () => {
       <Container>
         <Form noValidate onSubmit={handelSubmit}>
           <Row>
-            <h2>더치 페이 할 그룹 이름 정하기</h2>
+            <h2>{groupName} 더치 페이 할 그룹 이름 정하기</h2>
           </Row>
           <Row>
             <InputTags
               placeholder="이름 넣기"
-              values={groupMembers}
               onTags={(value) => setGroupMembers(value.values)}
             />
             {formSubmitted && groupMembers.length === 0 && (
