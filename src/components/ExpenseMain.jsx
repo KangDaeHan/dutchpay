@@ -1,3 +1,6 @@
+import {AddExpenseForm} from './AddExpenseForm';
+
+
 export const ExpenseMain = () => {
   return (
     <div>
@@ -5,6 +8,8 @@ export const ExpenseMain = () => {
       {/* LeftPane */}
       <div>
         {/* 비용추가 폼 */}
+        <AddExpenseForm />
+        
         {/* 정산결과 컴포넌트 */}
       </div>
       {/* //LeftPane */}
